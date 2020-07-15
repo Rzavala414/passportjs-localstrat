@@ -2,7 +2,6 @@ const router = require('express').Router();
 const User = require('../models/Users');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const bet = require('../config/auth')
 //Login
 router.get('/login', (req, res) =>{
     res.render('login');
