@@ -31,7 +31,7 @@ app.use(session({
   }));
 
 // Connect Flash
-
+app.use(flash());
 
 //routes
 app.use('/', require('./routes/index'));
