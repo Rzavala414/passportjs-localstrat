@@ -1,18 +1,19 @@
 const express = require('express');
+const dotenv = require('dotenv')
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const db = require('./config/keys').MONGO_URI
 
 const app = express();
+dotenv.config({path: './config/keys.env' });
 
 //Passport config
 require('./config/passport')(passport);
 
 //database
-mongoose.connect(db, { 
+mongoose.connect(process.env.MONGO_URI, { 
     useNewUrlParser: true,
     useUnifiedTopology: true 
 }, console.log('connected to db'))
